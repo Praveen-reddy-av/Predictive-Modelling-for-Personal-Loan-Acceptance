@@ -1,0 +1,247 @@
+data <- read.csv('Bank_Personal_Loan_Modelling.csv')
+install.packages("rpart")
+install.packages("rpart.plot")
+install.packages("caret")
+library(rpart)
+library(rpart.plot)
+library(caret)
+summary(data)
+# Using sapply() and table() combination
+sapply(data, function(x) table(x))
+# Set the seed for reproducibility
+set.seed(530)
+Random.seed <- c("Mersenne-Twister", 530)
+# Clean the data (remove missing values)
+# Perform train-test split
+data.split <- sample(1:nrow(data), size = nrow(data) * 0.5)
+train.data <- data[data.split, ]
+test.data <- data[-data.split, ]
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + Family + CCAvg + Education + Mortgage + Securities Account + CD Account + Online + CreditCard,
+data
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + Family + CCAvg + Education + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+prp(cart_model, , roundint = FALSE)
+cart_model$cptable
+prp(cart_model, roundint = FALSE)
+cart_model$cptable
+# Count occurrences of education levels and personal loan status
+education_loan_count <- table(df$Education, df$Personal.Loan)
+# Count occurrences of education levels and personal loan status
+education_loan_count <- table(data$Education, data$Personal.Loan)
+# Print the count
+print(education_loan_count)
+# Count occurrences of education levels and personal loan status
+education_loan_count <- table(data$Family, data$Personal.Loan)
+# Print the count
+print(education_loan_count)
+# Constructing CART Model
+# Fit CART model
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + CCAvg + Education + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+# Output graphical representation of the tree
+prp(cart_model, roundint = FALSE)
+# Count occurrences of education levels and personal loan status
+education_loan_count <- table(data$Education, data$Personal.Loan)
+# Print the count
+print(education_loan_count)
+# Constructing CART Model
+# Fit CART model
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + CCAvg  + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+# Output graphical representation of the tree
+prp(cart_model, roundint = FALSE)
+# Constructing CART Model
+# Fit CART model
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + Education + Family + CCAvg  + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+# Output graphical representation of the tree
+prp(cart_model, roundint = FALSE)
+# View the performance at each level of the tree
+cart_model$cptable
+# Fit CART model
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + Education + CCAvg  + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+prp(cart_model, roundint = FALSE)
+cart_model$cptable
+cp.class.param <- cart_model$cptable
+# View the complexity parameters table
+print(cp.class.param)
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + Education + Family + CCAvg  + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+prp(cart_model, roundint = FALSE)
+cp.class.param <- cart_model$cptable
+# View the complexity parameters table
+print(cp.class.param)
+cart_model$cptable
+# Constructing CART Model
+# Fit CART model
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + CCAvg  + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+prp(cart_model, roundint = FALSE)
+cart_model$cptable
+# Constructing CART Model
+# Fit CART model
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + Family + CCAvg  + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+prp(cart_model, roundint = FALSE)
+cart_model$cptable
+# Count occurrences of education levels and personal loan status
+education_loan_count <- table(data$Education, data$Personal.Loan)
+# Print the count
+print(education_loan_count)
+data <- read.csv('Bank_Personal_Loan_Modelling.csv')
+column(data)
+columns(data)
+colnames(data)
+library(rpart)
+set.seed(123)  # for reproducibility
+train_index <- sample(1:nrow(data), 0.5 * nrow(data))  # 70% training data
+train_data <- data[train_index, ]
+test_data <- data[-train_index, ]
+# Example formula assuming all other columns are predictors
+formula <- Personal.Loan ~ Age + Experience + Income + ZIP.Code + Family + CCAvg + Education + Mortgage + Securities.Account + CD.Account + Online + CreditCard
+# Build the decision tree model
+tree_model <- rpart(formula, data = train_data, method = "class")
+# Plot the decision tree
+plot(tree_model)
+text(tree_model)
+# Make predictions on the testing dataset
+predictions <- predict(tree_model, newdata = test_data, type = "class")
+# Evaluate accuracy
+accuracy <- sum(predictions == test_data$Personal.Loan) / nrow(test_data)
+data <- read.csv('Bank_Personal_Loan_Modelling.csv')
+# Load required packages
+install.packages("rpart")
+install.packages("rpart.plot")
+install.packages("caret")
+library(rpart)
+library(rpart.plot)
+library(caret)
+# Using summary() function
+summary(data)
+# Using sapply() and table() combination
+sapply(data, function(x) table(x))
+# Set the seed for reproducibility
+set.seed(530)
+Random.seed <- c("Mersenne-Twister", 530)
+# Clean the data (remove missing values)
+# Perform train-test split
+data.split <- sample(1:nrow(data), size = nrow(data) * 0.5)
+train.data <- data[data.split, ]
+test.data <- data[-data.split, ]
+data
+# Constructing CART Model
+# Fit CART model
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + Family + CCAvg  + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+# Output graphical representation of the tree
+prp(cart_model, roundint = FALSE)
+# View the performance at each level of the tree
+cart_model$cptable
+# Count occurrences of education levels and personal loan status
+education_loan_count <- table(data$Education, data$Personal.Loan)
+# Print the count
+print(education_loan_count)
+install.packages("rpart.plot")
+install.packages("caret")
+install.packages("caret")
+install.packages("rpart")
+# Using summary() function
+summary(data)
+# Using sapply() and table() combination
+sapply(data, function(x) table(x))
+# Set the seed for reproducibility
+set.seed(530)
+Random.seed <- c("Mersenne-Twister", 530)
+# Clean the data (remove missing values)
+# Perform train-test split
+data.split <- sample(1:nrow(data), size = nrow(data) * 0.5)
+train.data <- data[data.split, ]
+test.data <- data[-data.split, ]
+data
+# Constructing CART Model
+# Fit CART model
+cart_model <- rpart(formula = Personal.Loan ~ Age + Experience + Income + Family + CCAvg  + Mortgage + Securities.Account + CD.Account + Online + CreditCard,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+# Output graphical representation of the tree
+prp(cart_model, roundint = FALSE)
+# View the performance at each level of the tree
+cart_model$cptable
+# Count occurrences of education levels and personal loan status
+education_loan_count <- table(data$Education, data$Personal.Loan)
+# Print the count
+print(education_loan_count)
+library(rpart)
+library(rpart.plot)
+library(caret)
+summary(data)
+# Using sapply() and table() combination
+sapply(data, function(x) table(x))
+# Set the seed for reproducibility
+set.seed(530)
+Random.seed <- c("Mersenne-Twister", 530)
+# Clean the data (remove missing values)
+data$Education <- factor(data$Education)
+data$Family <- factor(data$Family)
+# Perform train-test split
+data.split <- sample(1:nrow(data), size = nrow(data) * 0.5)
+train.data <- data[data.split, ]
+test.data <- data[-data.split, ]
+formula <- Personal.Loan ~ Age + Experience + Income + Family + CCAvg + Education + Mortgage + Securities.Account + CD.Account + Online + CreditCard
+data <- read.csv('Bank_Personal_Loan_Modelling.csv')
+data
+head(data)
+data$Education <- factor(data$Education)
+data$Family <- factor(data$Family)
+library(rpart)
+library(rpart.plot)
+library(caret)
+head(data)
+# Using summary() function
+summary(data)
+# Using sapply() and table() combination
+sapply(data, function(x) table(x))
+# Set the seed for reproducibility
+set.seed(530)
+Random.seed <- c("Mersenne-Twister", 530)
+data$Education <- factor(data$Education)
+data$Family <- factor(data$Family)
+# Perform train-test split
+data.split <- sample(1:nrow(data), size = nrow(data) * 0.5)
+train.data <- data[data.split, ]
+test.data <- data[-data.split, ]
+formula <- Personal.Loan ~ Age + Experience + Income + Family + CCAvg + Education + Mortgage + Securities.Account + CD.Account + Online + CreditCard
+cart_model <- rpart(formula = formula,
+data = train.data,
+method = "class",
+control = rpart.control(minbucket = 2, xval = 10))
+# Output graphical representation of the tree
+prp(cart_model, roundint = FALSE)
+# View the performance at each level of the tree
+cart_model$cptable
+data <- read.csv('Bank_Personal_Loan_Modelling.csv')
+colnames(data)
+library(rpart)
+data <- read.csv('Bank_Personal_Loan_Modelling.csv')
+# Load required packages
+install.packages("rpart")

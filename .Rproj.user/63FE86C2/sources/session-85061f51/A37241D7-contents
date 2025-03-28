@@ -1,0 +1,67 @@
+
+data <- read.csv('Bank_Personal_Loan_Modelling.csv')
+# Load required packages
+install.packages("rpart")
+install.packages("rpart.plot")
+install.packages("caret")
+library(rpart)
+library(rpart.plot)
+library(caret)
+
+
+
+head(data)
+
+# Using summary() function
+summary(data)
+
+# Using sapply() and table() combination
+sapply(data, function(x) table(x))
+
+
+
+
+
+
+
+# Set the seed for reproducibility
+set.seed(530)
+Random.seed <- c("Mersenne-Twister", 530)
+# Clean the data (remove missing values)
+
+data$Education <- factor(data$Education)
+data$Family <- factor(data$Family)
+
+
+# Perform train-test split
+data.split <- sample(1:nrow(data), size = nrow(data) * 0.5)
+train.data <- data[data.split, ]
+test.data <- data[-data.split, ]
+
+
+formula <- Personal.Loan ~ Age + Experience + Income + Family + CCAvg + Education + Mortgage + Securities.Account + CD.Account + Online + CreditCard
+
+
+
+
+# Constructing CART Model
+# Fit CART model
+cart_model <- rpart(formula = formula,
+                    data = train.data,
+                    method = "class",
+                    control = rpart.control(minbucket = 2, xval = 10))
+
+
+# Output graphical representation of the tree
+prp(cart_model, roundint = FALSE)
+
+# View the performance at each level of the tree
+cart_model$cptable
+
+
+
+
+
+
+
+
